@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { Noto_Music } from "next/font/google";
 
 import IntroductionView from "@/views/IntroductionView";
@@ -6,7 +7,7 @@ import ExperienceView from "@/views/ExperienceView";
 import ContactView from "@/views/ContactView";
 import { useCallback, useRef } from "react";
 
-// TODO: SEO, custom hook, animate on scroll, fix tailwind css bug on Chrome
+// TODO: SEO, custom hook, animate on scroll
 
 const font = Noto_Music({
   weight: "400",
@@ -14,6 +15,8 @@ const font = Noto_Music({
 });
 
 const Page = () => {
+  const router = useRouter();
+
   const sectionRefs = useRef<
     Record<"about" | "experience" | "contact", HTMLElement | null>
   >({
@@ -23,7 +26,7 @@ const Page = () => {
   });
 
   const onDownload = useCallback(async () => {
-    const res = await fetch("/resume.pdf", {
+    const res = await fetch("/api/download-resume", {
       method: "GET",
       headers: {
         "Content-Type": "application/pdf",
@@ -31,9 +34,15 @@ const Page = () => {
     });
     const content = await res.blob();
     const contentUrl = URL.createObjectURL(content);
-    window.open(contentUrl, "_blank", "noopener noreferrer");
+    const a = document.createElement("a");
+    a.href = contentUrl;
+    a.download = "Resume.pdf";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    // window.open(contentUrl, "_blank", "noopener noreferrer");
     URL.revokeObjectURL(contentUrl);
-  }, []);
+  }, [router]);
 
   const onAbout = useCallback(() => {
     window.scroll({
