@@ -1,22 +1,79 @@
+import React, { useCallback, useRef } from "react";
+
+import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 import { Noto_Music } from "next/font/google";
+import { NextSeo, type NextSeoProps } from "next-seo";
 
 import IntroductionView from "@/views/IntroductionView";
 import AboutView from "@/views/AboutView";
 import ExperienceView from "@/views/ExperienceView";
 import ContactView from "@/views/ContactView";
-import { useCallback, useRef } from "react";
 
-// TODO: SEO, custom hook, animate on scroll
+import { items } from "@/views/ExperienceView/constants";
+
+// TODO: custom hook, animate on scroll
 
 const font = Noto_Music({
   weight: "400",
   subsets: ["latin"],
 });
 
-const Page = () => {
-  const router = useRouter();
+export const getServerSideProps: GetServerSideProps<{
+  seo: NextSeoProps;
+}> = async ({ req }) => {
+  const CANONICAL_URL = `${
+    process.env.NODE_ENV === "development" ? "http://" : "https://"
+  }${req.headers.host}`;
+  const seoTitle = `Portfolio - ${process.env.NEXT_PUBLIC_PORTFOLIO_NAME_ALT}`;
+  const seoDescription =
+    "Hi, This is Tim. A Front-End Software Developer & UI/UX Designer.";
 
+  return {
+    props: {
+      seo: {
+        title: seoTitle,
+        description: seoDescription,
+        canonical: CANONICAL_URL,
+        openGraph: {
+          url: CANONICAL_URL,
+          title: seoTitle,
+          description: seoDescription,
+          images: [
+            {
+              url: items[0].src,
+              alt: items[0].alt,
+              type: "image/png",
+              width: 256,
+              height: 256,
+            },
+            {
+              url: items[1].src,
+              alt: items[1].alt,
+              type: "image/png",
+              width: 1920,
+            },
+            {
+              url: items[2].src,
+              alt: items[2].alt,
+              type: "image/jpeg",
+            },
+            {
+              url: items[3].src,
+              alt: items[3].alt,
+              type: "image/png",
+            },
+          ],
+        },
+      },
+    },
+  };
+};
+
+const Page = ({
+  seo,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+  const router = useRouter();
   const sectionRefs = useRef<
     Record<"about" | "experience" | "contact", HTMLElement | null>
   >({
@@ -66,29 +123,32 @@ const Page = () => {
   }, [sectionRefs]);
 
   return (
-    <main className={`${font.className}`}>
-      <IntroductionView
-        onDownload={onDownload}
-        onAbout={onAbout}
-        onExperience={onExperience}
-        onContact={onContact}
-      />
-      <AboutView
-        ref={(el) => {
-          sectionRefs.current = { ...sectionRefs.current, about: el };
-        }}
-      />
-      <ExperienceView
-        ref={(el) => {
-          sectionRefs.current = { ...sectionRefs.current, experience: el };
-        }}
-      />
-      <ContactView
-        ref={(el) => {
-          sectionRefs.current = { ...sectionRefs.current, contact: el };
-        }}
-      />
-    </main>
+    <>
+      <NextSeo {...seo} />
+      <main className={`${font.className}`}>
+        <IntroductionView
+          onDownload={onDownload}
+          onAbout={onAbout}
+          onExperience={onExperience}
+          onContact={onContact}
+        />
+        <AboutView
+          ref={(el) => {
+            sectionRefs.current = { ...sectionRefs.current, about: el };
+          }}
+        />
+        <ExperienceView
+          ref={(el) => {
+            sectionRefs.current = { ...sectionRefs.current, experience: el };
+          }}
+        />
+        <ContactView
+          ref={(el) => {
+            sectionRefs.current = { ...sectionRefs.current, contact: el };
+          }}
+        />
+      </main>
+    </>
   );
 };
 

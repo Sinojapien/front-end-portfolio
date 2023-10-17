@@ -4,7 +4,7 @@ import MarketVtuberScreenshot from "@/../public/market-vtuber-screenshot.png";
 export const items = [
   {
     id: "market",
-    src: "https://market.flyingmilktea.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.43185c10.png&w=256&q=75",
+    src: "https://market.flyingmilktea.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.43185c10.png&w=256&q=100",
     alt: "Flying Milk Tea Logo",
     href: "https://market.flyingmilktea.com",
     title: "Flying Milk Tea - Market",
@@ -23,7 +23,7 @@ export const items = [
   },
   {
     id: "virtualfes2023",
-    src: "https://virtualfes2023.flyingmilktea.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fbanner-m.305cde57.png&w=1920&q=75",
+    src: "https://virtualfes2023.flyingmilktea.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fbanner-m.305cde57.png&w=1920&q=100",
     alt: "Virtual Fes 2023 Banner",
     href: "https://virtualfes2023.flyingmilktea.com",
     title: "Virtual-Fes-2023 Hong Kong",
@@ -36,7 +36,7 @@ export const items = [
   },
   {
     id: "rg28",
-    src: RG28Banner,
+    src: RG28Banner.src,
     alt: "Rainbow-Gala 28 Banner",
     href: "https://www.rainbow-gala.com/28/main.html",
     title: "Rainbow Gala 28",
@@ -49,7 +49,7 @@ export const items = [
   },
   {
     id: "market-vtuber",
-    src: MarketVtuberScreenshot,
+    src: MarketVtuberScreenshot.src,
     alt: "Flying Milk Tea Vtuber Section Screenshot",
     href: "https://vtuber.flyingmilktea.com",
     title: "Flying Milk Tea - Market (Vtuber Section)",
