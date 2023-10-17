@@ -1,0 +1,21 @@
+@import "../../../../styles/card.scss";
+
+.anchorButton {
+  @extend .card;
+
+  width: 100%;
+
+  padding: 4px;
+
+  font-size: 20px;
+  color: black;
+  text-decoration: none;
+  text-align: center;
+
+  transition: background-color .33s, box-shadow .33s;
+}
+
+.anchorButton:hover {
+  background-color: darken($color: white, $amount: 2);
+  box-shadow: 4px 4px 16px darken($color: lightgrey, $amount: 5);
+}

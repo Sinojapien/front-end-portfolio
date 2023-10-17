@@ -1,0 +1,16 @@
+@use "sass:math";
+
+@mixin animated-underline($colour, $thickness: 0.1rem, $speed: 0.5s) {
+    display: inline;
+
+    background-image: linear-gradient($colour, $colour);
+    background-repeat: no-repeat;
+    background-size: 0% $thickness;
+    background-position: bottom left;
+    transition: background-size math.div($speed, 2.0);
+
+    &:hover {
+      background-size: 100% $thickness;
+      transition: background-size $speed;
+    }
+}

@@ -1,0 +1,50 @@
+@import "../../styles/card.scss";
+@import "../../styles/breakpoints.scss";
+@import "../../styles/section-head-shadow.scss";
+
+.container {
+  @extend .section-head-shadow;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: whitesmoke;
+
+  min-height: 100vh;
+}
+
+.innerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 12px;
+
+  padding: 16px;
+
+  @include breakpoint-up($screen-xs) {
+    width: 100%;
+  }
+  @include breakpoint-up($screen-sm) {
+    width: 80%;
+  }
+  @include breakpoint-up($screen-md) {
+    width: 60%;
+  }
+  @include breakpoint-up($screen-lg) {
+    width: 40%;
+  }
+  @include breakpoint-up($screen-xl) {
+    width: 30%;
+  }
+  // min-width: 196px;
+}
+
+
+.formContainter {
+  @extend .card;
+  width: 100%;
+  padding: 24px 28px;
+}

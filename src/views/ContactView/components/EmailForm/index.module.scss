@@ -1,0 +1,42 @@
+@import "../../../../styles/card.scss";
+
+.emailForm {
+  & > input, textarea {
+    margin-top: 4px;
+    margin-bottom: 12px;
+    padding: 8px 2px;
+    width: 100%;
+
+    border-width: 0;
+    border-bottom-width: 2px;
+
+    &:focus {
+      outline: none;
+      border-color: dodgerblue;
+    }
+  }
+  & > textarea {
+    resize: none;
+  }
+  & > p {
+    color: lighten($color: black, $amount: 40);
+  }
+  & button[type="submit"] {
+    padding: 8px 16px;
+    
+    background-color: dodgerblue;
+    border-radius: 4px;
+
+    color: white;
+    font-weight: 700;
+    line-height: 1.5rem;
+
+    box-shadow: 0px 0px 8px lightgrey;
+
+    transition: background-color .33s, box-shadow .33s;
+    &:hover {
+      background-color: lighten(dodgerblue, 5);
+      box-shadow: 0px 0px 12px darken($color: lightgrey, $amount: 5);
+    }
+  }
+}

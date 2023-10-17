@@ -1,0 +1,15 @@
+@import "../../styles/card.scss";
+@import "../../styles/animated-underline.scss";
+@import "../../styles/section-head-shadow.scss";
+
+.sectionHead {
+  @extend .section-head-shadow;
+}
+
+.title {
+  @extend .card;
+}
+
+.sectionTitle {
+  @include animated-underline(rgb(31 41 55), 0.15rem, 0.66s);
+}

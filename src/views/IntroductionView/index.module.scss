@@ -1,0 +1,51 @@
+@import "../../styles/breakpoints.scss";
+
+@mixin fill-parent() {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.backgroundDecor {
+  @include fill-parent();
+  background-image: linear-gradient(45deg, #5faafd, #3e6bba);
+
+  &::before {
+    @include fill-parent();
+
+    content: '';
+    @include breakpoint-up($screen-xs) {
+      clip-path: polygon(10% 0%, 100% 0%, 100% 70%, 20% 75%);
+    }
+    @include breakpoint-up($screen-sm) {
+      clip-path: polygon(30% 0%, 100% 0%, 100% 70%, 40% 75%);
+    }
+    @include breakpoint-up($screen-md) {
+      clip-path: polygon(40% 0%, 100% 0%, 100% 70%, 50% 75%);
+    }
+    @include breakpoint-up($screen-lg) {
+      clip-path: polygon(50% 0%, 100% 0%, 100% 70%, 60% 75%);
+    }
+    background-color: #3e6bba;
+  }
+  &::after {
+    @include fill-parent();
+
+    content: '';
+    @include breakpoint-up($screen-xs) {
+      clip-path: polygon(100% 30%, 100% 100%, 35% 100%, 30% 50%);
+    }
+    @include breakpoint-up($screen-sm) {
+      clip-path: polygon(100% 30%, 100% 100%, 55% 100%, 50% 50%);
+    }
+    @include breakpoint-up($screen-md) {
+      clip-path: polygon(100% 30%, 100% 100%, 65% 100%, 60% 50%);
+    }
+    @include breakpoint-up($screen-lg) {
+      clip-path: polygon(100% 30%, 100% 100%, 75% 100%, 70% 50%);
+    }
+    background-color: #5faafd;
+  }
+}
