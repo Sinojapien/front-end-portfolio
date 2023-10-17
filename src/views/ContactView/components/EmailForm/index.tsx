@@ -10,10 +10,10 @@ const EmailForm = (props: HTMLAttributes<HTMLFormElement>) => (
     className={`${styles.emailForm} ${props.className ? props.className : ""}`}
   >
     <p>Email Address</p>
-    <input type="email" name="email" />
+    <input type="email" name="email" placeholder="Your email..." />
     <br />
     <p>Subject </p>
-    <input type="text" name="subject" />
+    <input type="text" name="subject" placeholder="Topic..." />
     <br />
     <p>Message</p>
     <textarea

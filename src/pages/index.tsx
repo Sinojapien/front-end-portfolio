@@ -21,7 +21,9 @@ const font = Noto_Music({
 
 export const getServerSideProps: GetServerSideProps<{
   seo: NextSeoProps;
-}> = async ({ req }) => {
+}> = async ({ req, res }) => {
+  res.setHeader("cache-control", "public, max-age=86400");
+
   const CANONICAL_URL = `${
     process.env.NODE_ENV === "development" ? "http://" : "https://"
   }${req.headers.host}`;
