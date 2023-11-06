@@ -1,4 +1,4 @@
-@import "../../styles/section-head-shadow.scss";
+@use "../../styles/section-head-shadow.scss" as *;
 
 .sectionHead {
   @extend .section-head-shadow;

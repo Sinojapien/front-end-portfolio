@@ -1,6 +1,6 @@
-@import "../../styles/card.scss";
-@import "../../styles/animated-underline.scss";
-@import "../../styles/section-head-shadow.scss";
+@use "../../styles/card.scss" as *;
+@use "../../styles/animated-underline.scss" as *;
+@use "../../styles/section-head-shadow.scss" as *;
 
 .sectionHead {
   @extend .section-head-shadow;

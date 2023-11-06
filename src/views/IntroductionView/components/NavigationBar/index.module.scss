@@ -1,4 +1,4 @@
-@import "../../../../styles/animated-underline.scss";
+@use "../../../../styles/animated-underline.scss" as *;
 
 .underline {
   @include animated-underline(#ffffff);

@@ -1,4 +1,4 @@
-@import "../../../../styles/card.scss";
+@use "../../../../styles/card.scss" as *;
 
 .anchorButton {
   @extend .card;

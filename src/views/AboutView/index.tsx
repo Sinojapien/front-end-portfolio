@@ -64,7 +64,7 @@ const AboutView = forwardRef(
             <b>front-end development</b>, <b>UI &amp; UX designs</b> and{" "}
             <b>problem-solving</b> skills on a <b>web front-end developer</b>{" "}
             position. Able to work in teams or independently. Also passionate
-            about <b>game development</b> and is an amateur game developer.
+            about <b>game development</b>.
           </div>
         </div>
         <Title className=" from-purple-500 to-blue-600">

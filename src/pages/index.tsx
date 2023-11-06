@@ -1,7 +1,6 @@
 import React, { useCallback, useRef } from "react";
 
 import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
-import { useRouter } from "next/router";
 import { Noto_Music } from "next/font/google";
 import { NextSeo, type NextSeoProps } from "next-seo";
 
@@ -67,6 +66,9 @@ export const getServerSideProps: GetServerSideProps<{
             },
           ],
         },
+        twitter: {
+          //TODO:
+        },
       },
     },
   };
@@ -75,7 +77,6 @@ export const getServerSideProps: GetServerSideProps<{
 const Page = ({
   seo,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  const router = useRouter();
   const sectionRefs = useRef<
     Record<"about" | "experience" | "contact", HTMLElement | null>
   >({
@@ -101,7 +102,7 @@ const Page = ({
     a.remove();
     // window.open(contentUrl, "_blank", "noopener noreferrer");
     URL.revokeObjectURL(contentUrl);
-  }, [router]);
+  }, []);
 
   const onAbout = useCallback(() => {
     window.scroll({

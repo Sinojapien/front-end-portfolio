@@ -1,6 +1,6 @@
-@import "../../styles/card.scss";
-@import "../../styles/breakpoints.scss";
-@import "../../styles/section-head-shadow.scss";
+@use "../../styles/card.scss" as *;
+@use "../../styles/breakpoints.scss" as *;
+@use "../../styles/section-head-shadow.scss" as *;
 
 .container {
   @extend .section-head-shadow;

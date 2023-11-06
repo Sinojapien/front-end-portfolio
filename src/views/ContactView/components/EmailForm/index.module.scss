@@ -1,4 +1,4 @@
-@import "../../../../styles/card.scss";
+@use "../../../../styles/card.scss" as *;
 
 .emailForm {
   & > input, textarea {
