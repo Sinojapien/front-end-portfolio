@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "init": "cp -r -v scripts/* .git/hooks/ && chmod +x .git/hooks/* && echo 'githooks initialized'",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",

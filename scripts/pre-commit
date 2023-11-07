@@ -1,0 +1,7 @@
+#!/bin/sh
+
+echo "*****running pre-commit git hook*****"
+
+npm run format
+
+npm run lint
