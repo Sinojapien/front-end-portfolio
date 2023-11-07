@@ -1,6 +1,7 @@
 import map from "lodash/map";
 
 import { ChipListProps, ChipProps } from "./types";
+import { ForwardedRef, forwardRef } from "react";
 
 export const Chip = ({
   label,
@@ -27,15 +28,23 @@ export const Chip = ({
   </div>
 );
 
-const ChipList = ({ items, className, ...props }: ChipListProps) => (
-  <div
-    className={`${className ?? ""} flex flex-wrap gap-x-2 gap-y-3`}
-    {...props}
-  >
-    {map(items, (item) => (
-      <Chip key={item.label} {...item} />
-    ))}
-  </div>
+const ChipList = forwardRef(
+  (
+    { items, className, ...props }: ChipListProps,
+    ref: ForwardedRef<HTMLDivElement>,
+  ) => (
+    <div
+      ref={ref}
+      className={`${className ?? ""} flex flex-wrap gap-x-2 gap-y-3`}
+      {...props}
+    >
+      {map(items, (item) => (
+        <Chip key={item.label} {...item} />
+      ))}
+    </div>
+  ),
 );
+
+ChipList.displayName = "ChipList";
 
 export default ChipList;

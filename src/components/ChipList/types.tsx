@@ -1,4 +1,4 @@
-import { HTMLAttributes, ReactNode } from "react";
+import { ComponentPropsWithoutRef, HTMLAttributes, ReactNode } from "react";
 
 export type ChipProps = {
   label: string;
@@ -9,4 +9,4 @@ export type ChipProps = {
 
 export type ChipListProps = {
   items: ChipProps[];
-} & HTMLAttributes<HTMLDivElement>;
+} & ComponentPropsWithoutRef<"div">;

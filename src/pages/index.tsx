@@ -11,8 +11,6 @@ import ContactView from "@/views/ContactView";
 
 import { items } from "@/views/ExperienceView/constants";
 
-// TODO: custom hook, animate on scroll
-
 const font = Noto_Music({
   weight: "400",
   subsets: ["latin"],

@@ -1,0 +1,10 @@
+.inactive {
+  filter: blur(4px);
+
+  transition: filter 1s;
+  transition-timing-function:cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+
+.active {
+  filter: blur(0);
+}
