@@ -19,14 +19,14 @@ import { otherChips, frontEndChips } from "./constants";
 
 import fadeInStyles from "@/styles/scrollAnimation/fade-in.module.scss";
 import styles from "./index.module.scss";
-import useIntersectionObserver from "@/hooks/useIntersectionObserver";
+import useScrollAnimation from "@/hooks/useScrollAnim";
 
 const AboutView = forwardRef(
   (
     { className, ...props }: ComponentPropsWithoutRef<"div">,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
-    const { observe } = useIntersectionObserver({
+    const { observe } = useScrollAnimation({
       onScreenClassname: fadeInStyles.active,
     });
 

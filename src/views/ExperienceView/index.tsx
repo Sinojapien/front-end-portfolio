@@ -11,14 +11,14 @@ import { map } from "lodash";
 import { items } from "./constants";
 
 import ProjectItem from "./components/ProjectItem";
-import useIntersectionObserver from "@/hooks/useIntersectionObserver";
+import useScrollAnimation from "@/hooks/useScrollAnim";
 
 const ExperienceView = forwardRef(
   (
     { className, ...props }: ComponentPropsWithoutRef<"div">,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
-    const { observe } = useIntersectionObserver({
+    const { observe } = useScrollAnimation({
       onScreenClassname: focusStyles.active,
       options: { threshold: 0.1 },
     });

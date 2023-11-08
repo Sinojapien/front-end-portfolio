@@ -1,23 +1,15 @@
 import { LegacyRef, useCallback, useEffect, useRef, useState } from "react";
 
-const defaultClassname = "on-screen";
-
 type propsType = {
-  oneOff?: boolean;
-  onScreenClassname?: string;
   options?: IntersectionObserverInit;
-  intersectionObserver?: IntersectionObserver;
+  callback: (
+    entry: IntersectionObserverEntry,
+    observer: IntersectionObserver | undefined,
+  ) => void;
 };
 
-const useIntersectionObserver = ({
-  oneOff = true,
-  onScreenClassname,
-  options,
-  intersectionObserver,
-}: propsType = {}) => {
-  const observerRef = useRef<IntersectionObserver | undefined>(
-    intersectionObserver,
-  );
+const useIntersectionObserver = ({ options, callback }: propsType) => {
+  const observerRef = useRef<IntersectionObserver | undefined>(undefined);
   const [observedElements, setObservedElements] = useState<HTMLElement[]>([]);
 
   const observe: LegacyRef<HTMLElement> = useCallback(
@@ -33,16 +25,7 @@ const useIntersectionObserver = ({
     if (!observerRef.current) {
       observerRef.current = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add(onScreenClassname ?? defaultClassname);
-            if (oneOff) {
-              observerRef.current?.unobserve(entry.target);
-            }
-          } else {
-            entry.target.classList.remove(
-              onScreenClassname ?? defaultClassname,
-            );
-          }
+          callback(entry, observerRef.current);
         });
       }, options);
     }
@@ -55,7 +38,7 @@ const useIntersectionObserver = ({
       observedElements.forEach((el) => observerRef.current?.unobserve(el));
       observerRef.current?.disconnect();
     };
-  }, [oneOff, onScreenClassname, options, observerRef, observedElements]);
+  }, [options, callback, observerRef, observedElements]);
 
   return { observe };
 };
