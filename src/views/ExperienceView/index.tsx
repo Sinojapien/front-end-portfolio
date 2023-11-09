@@ -32,6 +32,7 @@ const ExperienceView = forwardRef(
         <div className="translate-y-[-50%]">
           <div
             className={`w-fit mx-auto sm:px-16 px-8 py-4 text-4xl font-extrabold leading-normal ${styles.title}`}
+            role="heading"
           >
             Experience
           </div>

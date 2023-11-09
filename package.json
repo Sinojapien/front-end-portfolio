@@ -8,7 +8,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --check --ignore-path .gitignore ."
+    "format": "prettier --check --ignore-path .gitignore .",
+    "test": "playwright test",
+    "test:init": "playwright install; playwright install-deps"
   },
   "dependencies": {
     "axios": "^1.5.1",
@@ -22,6 +24,7 @@
     "typescript": "5.2.2"
   },
   "devDependencies": {
+    "@playwright/test": "^1.39.0",
     "@types/lodash": "^4.14.198",
     "@types/node": "^20.6.0",
     "@types/react": "^18.2.21",

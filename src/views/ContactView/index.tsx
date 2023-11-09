@@ -39,6 +39,7 @@ const ContactView = forwardRef(
     >
       <div className={`${styles.innerContainer}`}>
         <span
+          role="heading"
           style={{
             fontSize: "1.75rem",
             color: "#444",

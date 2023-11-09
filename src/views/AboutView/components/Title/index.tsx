@@ -9,6 +9,7 @@ const Title = ({
     className={`text-center text-5xl font-extrabold sm:mb-10 mb-4 bg-gradient-to-r leading-normal ${
       className ?? ""
     }`}
+    role="heading"
     style={{
       // For gradient text
       backgroundClip: "text",
