@@ -10,7 +10,7 @@
     "lint": "next lint",
     "format": "prettier --check --ignore-path .gitignore .",
     "test": "playwright test",
-    "test:init": "playwright install; playwright install-deps"
+    "test:init": "playwright install --with-deps"
   },
   "dependencies": {
     "axios": "^1.5.1",
