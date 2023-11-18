@@ -58,5 +58,5 @@ test("test contact section", async ({ page }) => {
   // LinkedIn button, behaviour: visit url
   await page.getByRole("link", { name: "LinkedIn" }).click();
   await expect(await page.url()).toMatch(/https:\/\/www.linkedin.com\/*?/g);
-  await page.goBack();
+  // await page.goBack();
 });
