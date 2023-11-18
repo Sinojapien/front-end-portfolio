@@ -17,12 +17,12 @@ import type { ContactButtonProps } from "./components/ContactButton/types";
 const buttons = [
   {
     title: "GitHub",
-    href: `${process.env.NEXT_PUBLIC_GITHUB_URL}`,
+    href: `${process.env.NEXT_PUBLIC_GITHUB_URL ?? ""}`,
     icon: GitHubIcon.src,
   },
   {
     title: "LinkedIn",
-    href: `${process.env.NEXT_PUBLIC_LINKEDIN_URL}`,
+    href: `${process.env.NEXT_PUBLIC_LINKEDIN_URL ?? ""}`,
     icon: LinkedInIcon.src,
   },
 ] as const;

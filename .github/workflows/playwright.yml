@@ -1,9 +1,16 @@
 name: Playwright Tests
+
 on:
   push:
     branches: [main]
   pull_request:
     branches: [main]
+
+env:
+  PORTFOLIO_RESUME_URL: ${{secrets.PORTFOLIO_RESUME_URL}}
+  NEXT_PUBLIC_LINKEDIN_URL: "https://www.linkedin.com/"
+  NEXT_PUBLIC_GITHUB_URL: "https://github.com/"
+
 jobs:
   test:
     timeout-minutes: 60
